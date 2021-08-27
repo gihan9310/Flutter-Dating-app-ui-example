@@ -1,25 +1,13 @@
-import 'package:dating_app/screens/get_start_screen.dart';
 import 'package:flutter/material.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _SplashPageState createState() => _SplashPageState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    Future.delayed(Duration(seconds: 4)).then((value) => {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => GetStartPage(),
-              ))
-        });
-  }
-
+class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -71,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
                               minHeight: 0.0,
                               maxHeight: 500.0,
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment:MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   SizedBox(
@@ -87,23 +75,15 @@ class _SplashScreenState extends State<SplashScreen> {
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(300),
-                                          color: hexToColor('#FA5672')
-                                              .withOpacity(0.1),
+                                          color: hexToColor('#FA5672').withOpacity(0.1),
                                         ),
-                                        child: Image.asset(
-                                            'assets/images/splash_sccreen.png'),
+                                        child: Image.asset('assets/images/splash_sccreen.png'),
                                       ),
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      'Find Your Soulmate',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 36,
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                    child: Text('Find Your Soulmate',style: TextStyle(color: Colors.black,fontSize: 36,fontWeight: FontWeight.bold),),
                                   )
                                 ],
                               ),
@@ -122,7 +102,7 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  Color hexToColor(String code) {
+    Color hexToColor(String code) {
     return new Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
   }
 }
