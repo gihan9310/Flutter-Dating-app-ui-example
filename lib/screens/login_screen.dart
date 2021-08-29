@@ -8,9 +8,10 @@ import 'package:dating_app/common_widegts/custom_social_login_button.dart';
 import 'package:dating_app/common_widegts/custom_term_and_condition.dart';
 import 'package:dating_app/screens/froget_password_page.dart';
 import 'package:dating_app/screens/get_start_screen.dart';
-import 'package:dating_app/screens/home.dart';
+import 'package:dating_app/screens/home_pages/home.dart';
 import 'package:dating_app/screens/registration_page.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -107,12 +108,12 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.only(top: 4, bottom: 4),
                   width: size.width,
                   child: InkWell(
-                    onTap: (){
-                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => FrogetPasswordPage(),
-                        ));
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FrogetPasswordPage(),
+                          ));
                     },
                     child: Text(
                       'Trouble login?',
@@ -130,10 +131,12 @@ class _LoginPageState extends State<LoginPage> {
                   buttonText: 'Login',
                   onTab: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomePage(),
-                        ));
+                      context,
+                      PageTransition(
+                        type: PageTransitionType.leftToRight,
+                        child: HomePage(),
+                      ),
+                    );
                   },
                 ),
                 SizedBox(
@@ -146,11 +149,13 @@ class _LoginPageState extends State<LoginPage> {
                   child: Center(
                     child: InkWell(
                       onTap: () {
-                         Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => RegistrationPage(),
-                        ));
+                        Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.leftToRight,
+                            child: RegistrationPage(),
+                          ),
+                        );
                       },
                       child: Text(
                         'Don’t have an account?',

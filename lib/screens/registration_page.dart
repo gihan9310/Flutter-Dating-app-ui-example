@@ -3,7 +3,9 @@ import 'package:dating_app/common_widegts/customDivider.dart';
 import 'package:dating_app/common_widegts/custom_lable.dart';
 import 'package:dating_app/common_widegts/custom_social_login_button.dart';
 import 'package:dating_app/common_widegts/custom_term_and_condition.dart';
+import 'package:dating_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({Key? key}) : super(key: key);
@@ -98,7 +100,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   size: size,
                   buttonColor: hexToColor('#FA5672'),
                   buttonText: 'Register',
-                  onTab: () {},
+                  onTab: () {
+                    Navigator.push(
+                      context,
+                      PageTransition(
+                        type: PageTransitionType.leftToRight,
+                        child: LoginPage(),
+                      ),
+                    );
+                  },
                 ),
                 SizedBox(
                   height: 10,

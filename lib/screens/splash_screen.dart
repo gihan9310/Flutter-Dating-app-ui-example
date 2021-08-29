@@ -1,5 +1,6 @@
 import 'package:dating_app/screens/get_start_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -12,12 +13,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 4)).then((value) => {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => GetStartPage(),
-              ))
-        });
+          // Navigator.push(
+          //     context,
+          //     MaterialPageRoute(
+          //       builder: (context) => GetStartPage(),
+          //     ));
+Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, child: GetStartPage()))      });
   }
 
   @override

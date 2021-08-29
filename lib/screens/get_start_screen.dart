@@ -1,6 +1,7 @@
 import 'package:dating_app/buttons/custom_button.dart';
 import 'package:dating_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class GetStartPage extends StatefulWidget {
   const GetStartPage({Key? key}) : super(key: key);
@@ -64,11 +65,13 @@ class _GetStartPageState extends State<GetStartPage> {
                     buttonColor: hexToColor('#FA5672'),
                     buttonText: 'Get Started',
                     onTab: () {
-                         Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LoginPage(),
-                        ));
+                           Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: LoginPage(),
+                          ),
+                        );
                     },
                   ),
                 ),
